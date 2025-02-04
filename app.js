@@ -1,5 +1,7 @@
 // El principal objetivo de este desafío es fortalecer tus habilidades en lógica de programación. Aquí deberás desarrollar la lógica para resolver el problema.
-let amigos = [];
+let amigos = []; 
+let amigoAleatorio = amigos.length;
+
 function agregarAmigo(){
     let listaAmigos = document.getElementById('amigo').value;
     if (listaAmigos == ''){
@@ -11,12 +13,23 @@ function agregarAmigo(){
         lista.innerHTML = '';
         
         for (let i = 1; i < amigos.length; i++) {
-            let li = document.createElement('li');
-            li.textContent = amigos[i];
+            let lit = document.createElement('li');
            
-            lista.appendChild(li);
+            lit.textContent = amigos[i];
+           
+            lista.appendChild(lit);
         }
         
     }
 
 }
+
+function sortearAmigo(){
+    let generarAmigoAle = Math.floor(Math.random()* amigoAleatorio)+1;
+    console.log(generarAmigoAle)
+    if (generarAmigoAle == amigoAleatorio){
+        console.log('dadasdj')
+    }
+    
+}
+sortearAmigo();
