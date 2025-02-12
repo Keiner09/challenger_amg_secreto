@@ -61,7 +61,7 @@ body {
     color: var(--color-white);
 }
 
-.section-title {
+.section-title{
     font-family: "Inter", serif;
     font-size: 36px;
     font-weight: 700;
@@ -69,7 +69,14 @@ body {
     margin: 10px 0;
     text-align: center;
 }
-
+.lista_amigos{
+    font-family: "Inter", serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: green;
+    margin: 10px 0;
+    text-align: center;
+}
 /* Contenedores de entrada y botón */
 .input-wrapper {
     display: flex;

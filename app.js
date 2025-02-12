@@ -14,21 +14,28 @@ function agregarAmigo(){
         });
         return;
     }
-    else{
-        //agreagar lista de amigos.
-        
-        amigos.push(listAmigos);
-        
-        let lista = document.getElementById('listaAmigos');
-        lista.innerHTML = '';
-        
-        for (let i = 0; i < amigos.length; i++) {
-            let lit = document.createElement('li');
-            lit.textContent = amigos[i];
-            lista.appendChild(lit);
-        }
-        limpiarCaja();
+    if (amigos.includes(listAmigos)){
+        Swal.fire({
+            icon: 'warning',
+            title: 'Amigo ya ingresado',
+            text: 'El nombre de amigo ya fue ingresado',
+            confirmButtonText: 'Ok'
+        });
+        return;
     }
+
+    //agreagar lista de amigos.
+    amigos.push(listAmigos);
+    let lista = document.getElementById('listaAmigos');
+    lista.innerHTML = '';
+    
+    for (let i = 0; i < amigos.length; i++) {
+        let lit = document.createElement('li');
+        lit.textContent = amigos[i];
+        lista.appendChild(lit);
+    }
+    limpiarCaja();
+
 
 }
 
