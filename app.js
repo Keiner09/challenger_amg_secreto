@@ -1,15 +1,20 @@
 // El principal objetivo de este desafío es fortalecer tus habilidades en lógica de programación. Aquí deberás desarrollar la lógica para resolver el problema.
-let amigos = []; 
 
+let amigos = []; 
 
 //funcion para agregar amigos
 function agregarAmigo(){
-    let listAmigos = document.getElementById('amigo').value;
-   
-
-    if (listAmigos == ''){
-        alert('Por favor, inserte un nombre.')
-    }else{
+    let listAmigos = document.getElementById('amigo').value.trim();
+    if (listAmigos === ''){
+        Swal.fire({
+            icon: 'warning',
+            title: 'Campo vacio',
+            text: 'Por favor, inserte un nombre.',
+            confirmButtonText: 'Ok'
+        });
+        return;
+    }
+    else{
         //agreagar lista de amigos.
         
         amigos.push(listAmigos);
@@ -24,23 +29,28 @@ function agregarAmigo(){
         }
         limpiarCaja();
     }
-    return
 
 }
 
 //funcion para sortearn amigos
+//se utiliza una libreria para mostrar mensaje de erros 
 function sortearAmigo(){
     if (amigos.length > 0){
         let generarAmigoAle = Math.floor(Math.random()* amigos.length);
         let amigoAleatorio = amigos[generarAmigoAle];
-     
         let amigoSorteado = document.getElementById('resultado');
         amigoSorteado.innerHTML = '';
         let lit = document.createElement('li');
         lit.textContent = `Tu amigo secreto es ${amigoAleatorio}`;
         amigoSorteado.appendChild(lit);
     }else{
-        alert('NO HAY AMIGOS INGRESADOS PARA SORTEAR.')
+        Swal.fire({
+            icon: 'warning',
+            title: 'Campo vacio',
+            text: 'No hay amigos ingresados para sortear',
+            confirmButtonText: 'Ok'
+        });
+        return;
     }
     return
 }
